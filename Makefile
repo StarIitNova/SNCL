@@ -44,7 +44,4 @@ $(BIN_DIR)/%.o: $(SOURCE_DIR)/%.c
 clean:
 	rm -rf $(BIN_DIR) libsncl.a
 
-menuconfig:
-	kconfig-mconf Kconfig
-
 -include $(DEPS)
