@@ -4,6 +4,13 @@ A C library engineered for my needs. It's a bunch of random tools, inspired heav
 
 Contributors are listed inside the files they contributed to.
 
+### Table of Contents
+
+1. [Libraries / Provided Modules](#libraries--provided-modules)
+2. [Contributing](#contributing)
+3. [Building / Usage Guide](#building)
+4. [License](#license)
+
 ### Libraries / Provided Modules
 
 library | includes | version | category | description
@@ -21,6 +28,19 @@ Please note that SNCL was originally made for the Saki build system, and as such
 developed with that in mind. Extra modules may be added at any time, but things like the
 primary makefile should not be so heavily modified that it can no longer ouput the libsncl binary
 in the proper directory or for object/dependency files to populate directories that should be clean.
+
+For information on building, see below.
+
+### Building
+
+Building is quite simple, although you do have to run the configuration manager as this does build a static library,
+and not everyone wants everything inside of their project.
+
+To get started, run `./config.sh` and select the modules you want to be built. Then run `make` and libsncl.a should be generated.
+
+If you're on windows, I'm sorry for not adding a separate mingw make for you, although it shouldn't be hard to just add the c files
+directly into your project along with the headers, you don't actually need the static library to be built. The point of SNCL was to
+be easily embeddable, not "you have to do it the way intended by my makefile!"
 
 ### License
 
