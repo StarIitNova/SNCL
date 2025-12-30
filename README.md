@@ -14,7 +14,7 @@ Contributors are listed inside the files they contributed to.
 ### Libraries / Provided Modules
 
 library | includes | version | category | description | dependencies
---------|----------|---------|----------|---------------------------
+--------|----------|---------|----------|-------------|-------------
 sncl\_clex | sncl\_clex.h | 1.00 | Compilers | A more capable C lexer based on stb\_c\_lexer | None
 sncl\_arraylist | sncl\_arraylist.h | 1.00 | Data Structures | An ArrayList (vector) implementation in C | sncl_typeid.h
 sncl\_clioptions | sncl\_clioptions.h | 1.00 | Utility | Command line argument parser for C (better argv parser) | None
