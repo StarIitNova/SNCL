@@ -4,7 +4,7 @@
 CDIALECT = c99
 CC       = gcc
 AR       = /usr/bin/ar
-CFLAGS   = -std=$(CDIALECT) -Wall -Wextra -O0 -g -Iinclude
+CFLAGS   = -std=$(CDIALECT) -Wall -Wextra -O3 -Iinclude
 
 # Input/output folders
 SOURCE_DIR = source
@@ -28,7 +28,7 @@ endif
 OBJ_FILES    = $(patsubst $(SOURCE_DIR)/%.c,$(BIN_DIR)/%.o,$(SOURCE_FILES))
 DEPS         = $(patsubst $(SOURCE_DIR)/%.c,$(BIN_DIR)/%.d,$(SOURCE_FILES))
 
-.PHONY: all clean dirs menuconfig
+.PHONY: all clean dirs menuconfig tests
 
 all: dirs libsncl.a
 
@@ -43,5 +43,9 @@ $(BIN_DIR)/%.o: $(SOURCE_DIR)/%.c
 
 clean:
 	rm -rf $(BIN_DIR) libsncl.a
+
+test:
+	@make -C tests
+	@make -C tests run
 
 -include $(DEPS)
