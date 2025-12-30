@@ -1,3 +1,10 @@
+/* SNCL typeid vX.XX
+   Defines helpful type information stuff for c versions
+
+   Contributors:
+   - StarIitNova (fynotix.dev@gmail.com)
+ */
+
 #ifndef SNCL_TYPEID_H__
 #define SNCL_TYPEID_H__
 

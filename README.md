@@ -16,8 +16,8 @@ Contributors are listed inside the files they contributed to.
 library | includes | version | category | description | dependencies
 --------|----------|---------|----------|-------------|-------------
 sncl\_clex | sncl\_clex.h | 1.00 | Compilers | A more capable C lexer based on stb\_c\_lexer | None
-sncl\_arraylist | sncl\_arraylist.h | 1.00 | Data Structures | An ArrayList (vector) implementation in C | sncl_typeid.h
-sncl\_clioptions | sncl\_clioptions.h | 1.00 | Utility | Command line argument parser for C (better argv parser) | None
+sncl\_arraylist | sncl\_arraylist.h | 1.01 | Data Structures | An ArrayList (vector) implementation in C | sncl_typeid.h
+sncl\_clioptions | sncl\_clioptions.h | 1.01 | Utility | Command line argument parser for C (better argv parser) | None
 sncl\_test | sncl\_test.h | 0.23 | Utility | Test runner for C and C++, based on JUnit 5 but better (not included in main library -- include this yourself) | Unix system
 sncl\_typeid | sncl\_typeid.h | X.XX | Utility | Provides type information for versions pre-C23 (and even up to in the future) | None
 

@@ -1,4 +1,4 @@
-/* SNCL ArrayList v1.0
+/* SNCL ArrayList v1.01
    Defines an interface for dynamic custom-type arrays in C.
 
    Contributors:

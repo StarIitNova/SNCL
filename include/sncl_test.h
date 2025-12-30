@@ -1,3 +1,11 @@
+/* SNCL Test Framework v0.23
+   Defines an interface for testing C (and C++ I guess) code extensively
+   See SNCL/tests directory for examples
+
+   Contributors:
+   - StarIitNova (fynotix.dev@gmail.com)
+ */
+
 #ifndef _TESTFRAMEWORK_H__
 #define _TESTFRAMEWORK_H__
 

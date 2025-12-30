@@ -1,4 +1,4 @@
-/* SNCL CLI Options v1.0
+/* SNCL CLI Options v1.01
    Defines a simple set of functions to assist in parsing command line arguments similar to how the GNU C Compiler
    might.
 
