@@ -43,6 +43,7 @@ void cliopt_start(int argc, char *const *argv) {
 void cliopt_end() {
     if (all_options.options)
         free(all_options.options);
+    all_options.options = NULL;
     all_options.capacity = 0;
     all_options.size = 0;
 }
@@ -83,6 +84,8 @@ long cliopt_get() {
     for (size_t i = 0; i < all_options.size; ++i) {
         option_t *opt = &all_options.options[i];
         if (arg_mode == 1) {
+            if (opt->single == '\0')
+                continue;
             if (cli_opt[1] == opt->single) {
                 if (opt->has_arg)
                     skip = 1;
@@ -95,6 +98,8 @@ long cliopt_get() {
                 break;
             }
         } else if (arg_mode == 2) {
+            if (!opt->string)
+                continue;
             if (strcmp(cli_opt + 2, opt->string) == 0) {
                 if (opt->has_arg)
                     skip = 1;
@@ -102,6 +107,10 @@ long cliopt_get() {
                 break;
             }
         }
+    }
+
+    if (res == CLI_OPT_UNKNOWN) {
+        arg_start = cli_opt;
     }
 
     opt_offset += 1 + skip;
@@ -116,7 +125,7 @@ char *cliopt_str() {
 
 char *cliopt_getarg() { return arg_start; }
 
-int cliopt_idx() { return opt_offset; }
+int cliopt_idx() { return opt_offset - 1; }
 
 void cliopt_printhelp(char *usage, char *argv0) {
     printf("\n");

@@ -11,6 +11,8 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+#include "sncl_typeid.h"
+
 // Standard definition for a public arraylist type
 #define array_list(type) type *
 
@@ -48,23 +50,23 @@ void array_list_vreserve(void **list, size_t cap);
 // Erases a range inside the arraylist, moving elements down as necessary.
 void array_list_erase(void *list, void *begin, void *end);
 
-// Pops an element from the back of the arraylist and returns it. Preserves type info.
-#define array_list_pop_back(list)                                                                                      \
-    *(typeof(list))array_list_end((void *)list);                                                                       \
-    array_list_erase(list, ((typeof(list))array_list_vend((void *)list)) - 1, array_list_vend((void *)list));
-
-// Creates a new arraylist given a desired type.
-#define array_list_new(type) (type *)array_list_create(sizeof(type), 16)
-
 // Returns the start of the arraylist as a type pointer.
 #define array_list_begin(list) ((typeof(list))array_list_vbegin((void *)list))
 // Returns the end of the arraylist as a type pointer.
 #define array_list_end(list) ((typeof(list))array_list_vend((void *)list))
 
+// Pops an element from the back of the arraylist and returns it. Preserves type info.
+#define array_list_pop_back(list)                                                                                      \
+    array_list_back(list);                                                                                             \
+    array_list_erase(list, array_list_end(list) - 1, array_list_end(list));
+
+// Creates a new arraylist given a desired type.
+#define array_list_new(type) (type *)array_list_create(sizeof(type), 16)
+
 // Returns the first element of the arraylist, copied.
 #define array_list_front(list) (*(typeof(list))array_list_vbegin((void *)list))
 // Returns the last element of the arraylist, copied.
-#define array_list_back(list) (*(typeof(list))array_list_vend((void *)list))
+#define array_list_back(list) (*((typeof(list))array_list_vend((void *)list) - 1))
 // Returns a specific element in the arraylist, copied. Same as arraylist[idx]
 #define array_list_at(list, idx) (*((typeof(list))array_list_vbegin((void *)list) + (idx)))
 
@@ -72,7 +74,7 @@ void array_list_erase(void *list, void *begin, void *end);
 #define array_list_push_back(list, value) array_list_vpush_back((void **)(&list), (void *)(&(value)))
 // Inserts a range to a specific position in the arraylist.
 #define array_list_insert(list, pos, begin, end)                                                                       \
-    array_list_vinsert((void **)(&list), (void *)pos, (void *)begin, (void *)end)
+    array_list_vinsert((void **)(&list), (void *)(pos), (void *)(begin), (void *)(end))
 // Reserves a minimum capacity in the arraylist.
 #define array_list_reserve(list, new_cap) array_list_vreserve((void **)(&list), new_cap)
 

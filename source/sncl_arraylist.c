@@ -66,6 +66,10 @@ void array_list_vinsert(void **list, void *at, void *begin, void *end) {
     array_list_t *arr = retrieve_from_data(*list);
 
     size_t added = ((uint8_t *)end - (uint8_t *)begin) / arr->type_size;
+    if (added == 0)
+        return;
+
+    size_t offset = ((uint8_t *)at - (uint8_t *)array_list_vbegin(*list)) / arr->type_size;
 
     size_t needed = arr->size + added;
     if (arr->capacity <= needed) {
@@ -76,11 +80,10 @@ void array_list_vinsert(void **list, void *at, void *begin, void *end) {
         arr = retrieve_from_data(*list);
     }
 
-    size_t offset = ((uint8_t *)at - arr->data) / arr->type_size;
-    // move data up
-    memmove((void *)((uint8_t *)at + added * arr->type_size), at, (arr->size - offset) * arr->type_size);
-    // copy in inserted data
-    memcpy(at, begin, added * arr->type_size);
+    uint8_t *at_ptr = (uint8_t *)arr->data + offset * arr->type_size;
+
+    memmove(at_ptr + added * arr->type_size, at_ptr, (arr->size - offset) * arr->type_size);
+    memcpy(at_ptr, begin, added * arr->type_size);
     arr->size += added;
 }
 

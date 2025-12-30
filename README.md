@@ -13,11 +13,13 @@ Contributors are listed inside the files they contributed to.
 
 ### Libraries / Provided Modules
 
-library | includes | version | category | description
---------|----------|---------|----------|------------
-sncl\_clex | sncl\_clex.h | 1.00 | Compilers | A more capable C lexer based on stb\_c\_lexer
-sncl\_arraylist | sncl\_arraylist.h | 1.00 | Data Structures | An ArrayList (vector) implementation in C
-sncl\_clioptions | sncl\_clioptions.h | 1.00 | Utility | Command line argument parser for C (better argv parser)
+library | includes | version | category | description | dependencies
+--------|----------|---------|----------|---------------------------
+sncl\_clex | sncl\_clex.h | 1.00 | Compilers | A more capable C lexer based on stb\_c\_lexer | None
+sncl\_arraylist | sncl\_arraylist.h | 1.00 | Data Structures | An ArrayList (vector) implementation in C | sncl_typeid.h
+sncl\_clioptions | sncl\_clioptions.h | 1.00 | Utility | Command line argument parser for C (better argv parser) | None
+sncl\_test | sncl\_test.h | 0.23 | Utility | Test runner for C and C++, based on JUnit 5 but better (not included in main library -- include this yourself) | Unix system
+sncl\_typeid | sncl\_typeid.h | X.XX | Utility | Provides type information for versions pre-C23 (and even up to in the future) | None
 
 ### Contributing
 
@@ -28,6 +30,10 @@ Please note that SNCL was originally made for the Saki build system, and as such
 developed with that in mind. Extra modules may be added at any time, but things like the
 primary makefile should not be so heavily modified that it can no longer ouput the libsncl binary
 in the proper directory or for object/dependency files to populate directories that should be clean.
+
+Alongside the guidelines above, ensure that you submit tests with any new API you add and ensure all tests pass. Pull requests
+that do not provide adequate testing won't be merged until testing is provided, although if I actually want the library to be
+included within SNCL, I might make the tests myself.
 
 For information on building, see below.
 
