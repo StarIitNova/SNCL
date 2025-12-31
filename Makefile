@@ -25,6 +25,10 @@ ifeq ($(CONFIG_CLI_OPTS),y)
 SOURCE_FILES += source/sncl_clioptions.c
 endif
 
+ifeq ($(CONFIG_LINKEDLIST),y)
+SOURCE_FILES += source/sncl_linkedlist.c
+endif
+
 OBJ_FILES    = $(patsubst $(SOURCE_DIR)/%.c,$(BIN_DIR)/%.o,$(SOURCE_FILES))
 DEPS         = $(patsubst $(SOURCE_DIR)/%.c,$(BIN_DIR)/%.d,$(SOURCE_FILES))
 
@@ -35,7 +39,7 @@ all: dirs libsncl.a
 dirs:
 	@mkdir -p $(BIN_DIR)
 
-libsncl.a: $(OBJ_FILES)
+libsncl.a: $(OBJ_FILES) config.mk Makefile
 	$(AR) rcs libsncl.a $(OBJ_FILES)
 
 $(BIN_DIR)/%.o: $(SOURCE_DIR)/%.c

@@ -3,8 +3,8 @@
 # Yeah I wrote a config script so what
 # Run it with ./config.sh
 
-MODULES="C_LEXER CLI_OPTS ARRAYLIST"
-MODULE_NAMES="C Lexer|CLI option handler|ArrayLists"
+MODULES="C_LEXER CLI_OPTS ARRAYLIST LINKEDLIST"
+MODULE_NAMES="C Lexer|CLI option handler|ArrayLists|LinkedLists"
 ENABLED="n y y"
 
 set -e

@@ -3,3 +3,5 @@ libsncl.a
 bin/
 .DS_Store
 config.mk
+compile_commands.json
+.cache/
