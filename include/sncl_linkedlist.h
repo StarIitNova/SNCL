@@ -1,3 +1,10 @@
+/* SNCL ArrayList v1.00
+   Defines an interface for dynamic custom-type linkedlists in C.
+
+   Contributors:
+   - StarIitNova (fynotix.dev@gmail.com)
+ */
+
 #ifndef SNCL_LINKEDLIST_H__
 #define SNCL_LINKEDLIST_H__
 
