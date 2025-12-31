@@ -16,4 +16,6 @@
 #endif
 #endif
 
+typedef void *iterator_t;
+
 #endif // SNCL_TYPEID_H__
