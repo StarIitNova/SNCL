@@ -31,7 +31,7 @@ ifeq ($(CONFIG_LINKEDLIST),y)
 SOURCE_FILES += source/sncl_linkedlist.c
 endif
 
-ifeq ($(CONFIG_YOUTUBETOOLS),y)
+ifeq ($(CONFIG_YOUTUBE_TOOLS),y)
 SOURCE_FILES += source/sncl_youtube.cpp
 endif
 
