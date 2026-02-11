@@ -21,6 +21,7 @@ sncl\_linkedlist | sncl\_linkedlist.h | 1.00 | Data Structures | A LinkedList im
 sncl\_clioptions | sncl\_clioptions.h | 1.01 | Utility | Command line argument parser for C (better argv parser) | None
 sncl\_test | sncl\_test.h | 0.23 | Utility | Test runner for C and C++, based on JUnit 5 but better (not included in main library -- include this yourself) | Unix system
 sncl\_typeid | sncl\_typeid.h | X.XX | Utility | Provides type information for versions pre-C23 (and even up to in the future) | None
+sncl\_youtube | sncl\_youtube.hpp | 1.00 | Utility | Provides a parser, tracking remover, and canonicalizer for youtube URLs | C++
 
 ### Contributing
 
